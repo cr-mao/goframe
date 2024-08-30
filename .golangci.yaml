@@ -1,0 +1,36 @@
+run:
+  timeout: 30m
+  go: "1.21"
+  checks:
+    - "all"
+    - "-SA1019"
+  goimports:
+    # 设置哪些包放在第三方包后面，可以设置多个包，逗号隔开
+    local-prefixes: goframe
+issues:
+  exclude-files:
+    - _test.go
+  exclude-dirs:
+    - examples
+    - doc
+
+
+linters:
+  disable-all: true
+  enable:
+#    - unused
+    - ineffassign
+    - goimports
+    - gofmt
+    - misspell
+    - unparam
+    - unconvert
+    - govet
+#    - errcheck
+    - staticcheck
+
+
+
+
+
+

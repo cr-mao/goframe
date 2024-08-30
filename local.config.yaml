@@ -1,0 +1,60 @@
+app:
+  # 应用名称
+  name: mom
+  # 环境 local,testing,production
+  env: local
+  # 是否开启调试模式
+  debug: true
+  # 时区 , 数据库要%2f ,
+  database_timezone: "Asia%2fShanghai"
+  # time.loadlocation 要 xx/xx
+  timezone: "Asia/Shanghai"
+  # http服务，接受消息
+  http_host: "0.0.0.0"
+  http_port: 9001
+
+
+database:
+  default:
+    # 数据库配置
+    host: "127.0.0.1"
+    port: 3306
+    username: "root"
+    password: "123456"
+    database: "demo"
+    charset: "utf8mb4"
+    # api 项目开大要1000，取决并发量,  cmd 项目小点
+    max_open_connections: 1000
+    max_idle_connections: 50
+    max_life_seconds: 300
+    enable_sql_log: false
+    # 这个没用
+    slow_log_millisecond: 500
+log:
+  #日志写入级别, 开发时推荐使用 "debug" 或者 "info" ，生产环境下使用 "error"
+  level: "debug"
+  # "single" 独立的文件,"daily" 按照日期每日一个
+  type: "daily"
+  # 日志文件路径
+  filename: "logs/logs.log"
+  # 64M
+  max_size: 64
+  #  最多保存日志文件数，0 为不限，MaxAge 到了还是会删
+  max_backup: 30
+  #   最多保存多少天，7 表示一周前的日志会被删除，0 表示不删
+  max_age: 7
+  # 是否压缩，压缩日志不方便查看，设置为 false（压缩可节省空间）
+  compress: false
+
+# redis配置
+redis:
+  default:
+    host: "127.0.0.1"
+    port: "6379"
+    password: ""
+    # 我们暂时用不到，redis6有用户的概念
+    username: ""
+    db: 0
+
+
+
